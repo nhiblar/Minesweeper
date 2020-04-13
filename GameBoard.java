@@ -1,4 +1,7 @@
+//Nate Hiblar
+
 package Minesweeper;
+
 import java.util.Random;
 
 public class GameBoard{
