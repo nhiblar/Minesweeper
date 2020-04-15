@@ -4,7 +4,7 @@ package Minesweeper;
 
 import java.util.Random;
 
-public class Tester {
+public class Driver {
 
 	public static void main(String[] args) {
 		
