@@ -26,7 +26,7 @@ public class createTester {
 
 			board = new char[row][col];
 			
-			output.print(col + " " + row);
+			output.print(row + " " + col);
 			output.println();
 
 			for(int i = 0; i < row; i++) {
