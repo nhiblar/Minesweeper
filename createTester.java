@@ -5,6 +5,7 @@ package Minesweeper;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintStream;
+import java.util.Random;
 
 public class createTester {
 
@@ -17,22 +18,33 @@ public class createTester {
 		PrintStream	output = new PrintStream(new File("mines.txt"));
 	
 		while(row > 0 && col > 0) {
+			Random rand = new Random();
 			System.out.println("Rows? : ");
-			col = GetUserInput.getSizeFromUser();
-			System.out.println("Columns? : ");
 			row = GetUserInput.getSizeFromUser();
-			System.out.println("Percent? : ");
-			percent = GetUserInput.getSizeFromUser();
-
+			System.out.println("Columns? : ");
+			col = GetUserInput.getSizeFromUser();
+			
+			if(row != 0 && col != 0) {
+				System.out.println("Percent? : ");
+				percent = GetUserInput.getSizeFromUser();
+				System.out.println(percent);
+			}
 			board = new char[row][col];
 			
 			output.print(row + " " + col);
 			output.println();
-
+			boolean flipMe = true;
+			
 			for(int i = 0; i < row; i++) {
 				for(int j = 0; j < col; j++) {
 					char ch;
-					ch = ((int)Math.random() * 100 < percent) ? '*' : '.' ;
+					if(percent == 50) {
+						ch = (flipMe) ? '*' : '.' ;
+						flipMe = !flipMe;
+					}else if(percent == 100)
+						ch = '*';
+					else
+						ch = '.';
 					output.print(ch);
 				}
 				output.println();
